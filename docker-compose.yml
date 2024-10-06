@@ -1,0 +1,12 @@
+services:
+  reactive-kafka-container:
+    container_name: postgres
+    image: postgres:12
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: order_db
+    volumes:
+      - ./data:/var/lib/postgresql/data
