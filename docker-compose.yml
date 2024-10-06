@@ -1,6 +1,7 @@
 services:
   reactive-kafka-container:
     container_name: postgres
+    restart: always
     image: postgres:12
     ports:
       - "5433:5432"

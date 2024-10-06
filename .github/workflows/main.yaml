@@ -19,6 +19,14 @@ jobs:
           distribution: 'corretto'
           java-version: '22'
 
+      - name: Setup postgres with docker-compose
+        run: |
+          docker compose up -d
+
+      - name: Waiting for PostgreSQL Instance
+        run: |
+          sleep 10
+
       - name: Build App
         run: |
           mvn clean
