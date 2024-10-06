@@ -1,6 +1,5 @@
 package com.rp.reactiveKafka.services;
 
-import ch.qos.logback.classic.spi.IThrowableProxy;
 import com.rp.reactiveKafka.config.mapperConfig.Mapper;
 import com.rp.reactiveKafka.dto.OrderRequest;
 import com.rp.reactiveKafka.dto.OrderResponse;
@@ -33,8 +32,8 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public OrderResponse getOrderById() {
-        Order order = orderRepository.findById().orElseThrow(
+    public OrderResponse getOrderById(String id) {
+        Order order = orderRepository.findById(id).orElseThrow(
                 () -> new IllegalStateException("Cannot find a order!")
         );
         return mapper.map(order, OrderResponse.class);
